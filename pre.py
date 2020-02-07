@@ -63,9 +63,9 @@ def string_processor(token):
     # str = strip_custom(str)
     str = remove_stopwords(str)
     str = strip_punctuation(str)
-    str = strip_non_alphanum(str)
+    str = strip_non_alphanum(str)          # will rm puncs 
     tokens = sp(str)
-    tokens = [token.lemma_ for token in tokens]
+    tokens = [token.lemma_ for token in tokens]       # lemma_ will replace i to -PRON-, sorce code bug
     tokens = [porter_stemmer.stem(token) for token in tokens]
     str = " ".join(tokens)
     str = strip_multiple_whitespaces(str)
